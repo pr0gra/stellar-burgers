@@ -36,11 +36,9 @@ export const ProtectedRoute = ({
   redirectTo?: string;
 }) => {
   const { isAuthenticated, loading } = useSelector((state) => state.profile);
-
   if (loading) {
     return <p>Проверка авторизации...</p>;
   }
-
   if (isProtected && !isAuthenticated) {
     return <Navigate to={redirectTo} replace />;
   }
