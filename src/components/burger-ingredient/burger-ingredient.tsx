@@ -10,7 +10,7 @@ import {
 } from '../../../src/services/slices/burgerConstructorSlice';
 
 export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
-  ({ ingredient, count }) => {
+  ({ ingredient, count, 'data-cy': dataCy }) => {
     const location = useLocation();
     const dispatch = useDispatch();
 
@@ -24,6 +24,7 @@ export const BurgerIngredient: FC<TBurgerIngredientProps> = memo(
 
     return (
       <BurgerIngredientUI
+        data-cy={dataCy}
         ingredient={ingredient}
         count={count}
         locationState={{ background: location }}

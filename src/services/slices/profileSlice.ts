@@ -11,7 +11,7 @@ interface ProfileState {
   isAuthenticated: boolean;
 }
 
-const initialState: ProfileState = {
+export const initialState: ProfileState = {
   user: null,
   loading: false,
   error: null,

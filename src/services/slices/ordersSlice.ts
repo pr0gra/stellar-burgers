@@ -12,7 +12,7 @@ interface OrdersState {
   creatingOrder: boolean;
 }
 
-const initialState: OrdersState = {
+export const initialState: OrdersState = {
   items: [],
   order: null,
   loading: false,

@@ -5,18 +5,19 @@ import styles from './burger-ingredient.module.css';
 import {
   Counter,
   CurrencyIcon,
-  AddButton
+  AddButton,
+  Button
 } from '@zlden/react-developer-burger-ui-components';
 
 import { TBurgerIngredientUIProps } from './type';
 
 export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
-  ({ ingredient, count, handleAdd, locationState }) => {
+  ({ ingredient, count, handleAdd, locationState, 'data-cy': dataCy }) => {
     const { image, price, name, _id } = ingredient;
-
     return (
       <li className={styles.container}>
         <Link
+          data-cy={`${dataCy}.link-${ingredient.name}`}
           className={styles.article}
           to={`/ingredients/${_id}`}
           state={locationState}
@@ -27,13 +28,22 @@ export const BurgerIngredientUI: FC<TBurgerIngredientUIProps> = memo(
             <p className='text text_type_digits-default mr-2'>{price}</p>
             <CurrencyIcon type='primary' />
           </div>
-          <p className={`text text_type_main-default ${styles.text}`}>{name}</p>
+          <p
+            data-cy={`${dataCy}.name`}
+            className={`text text_type_main-default ${styles.text}`}
+          >
+            {name}
+          </p>
         </Link>
-        <AddButton
-          text='Добавить'
+        <Button
+          type='secondary'
+          data-cy={`${dataCy}.addButton-${ingredient.name}`}
           onClick={handleAdd}
           extraClass={`${styles.addButton} mt-8`}
-        />
+          htmlType={'button'}
+        >
+          Добавить
+        </Button>
       </li>
     );
   }

@@ -7,7 +7,7 @@ import { useSelector } from '../../../src/services/store';
 export const IngredientsCategory = forwardRef<
   HTMLUListElement,
   TIngredientsCategoryProps
->(({ title, titleRef, ingredients }, ref) => {
+>(({ title, titleRef, ingredients, 'data-cy': dataCy }, ref) => {
   const burgerConstructor = useSelector((state) => state.burgerConstructor);
 
   const ingredientsCounters = useMemo(() => {
@@ -23,6 +23,7 @@ export const IngredientsCategory = forwardRef<
 
   return (
     <IngredientsCategoryUI
+      data-cy={dataCy}
       title={title}
       titleRef={titleRef}
       ingredients={ingredients}

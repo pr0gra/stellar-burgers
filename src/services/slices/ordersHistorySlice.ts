@@ -8,7 +8,7 @@ type TOrdersHistoryState = {
   error: string | null;
 };
 
-const initialState: TOrdersHistoryState = {
+export const initialState: TOrdersHistoryState = {
   orders: [],
   loading: false,
   error: null

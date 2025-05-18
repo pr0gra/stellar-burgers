@@ -16,7 +16,8 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
   price,
   orderModalData,
   onOrderClick,
-  closeOrderModal
+  closeOrderModal,
+  'data-cy': dataCy = 'BurgerConstructorUI'
 }) => (
   <section className={styles.burger_constructor}>
     {constructorItems.bun ? (
@@ -31,6 +32,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
       </div>
     ) : (
       <div
+        data-cy='emptyBuns'
         className={`${styles.noBuns} ${styles.noBunsTop} ml-8 mb-4 mr-5 text text_type_main-default`}
       >
         Выберите булки
@@ -41,6 +43,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         constructorItems.ingredients.map(
           (item: TConstructorIngredient, index: number) => (
             <BurgerConstructorElement
+              data-cy={`constructorElement`}
               ingredient={item}
               index={index}
               totalItems={constructorItems.ingredients.length}
@@ -50,6 +53,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         )
       ) : (
         <div
+          data-cy='emptyMains'
           className={`${styles.noBuns} ml-8 mb-4 mr-5 text text_type_main-default`}
         >
           Выберите начинку
@@ -79,6 +83,7 @@ export const BurgerConstructorUI: FC<BurgerConstructorUIProps> = ({
         <CurrencyIcon type='primary' />
       </div>
       <Button
+        data-cy={`${dataCy}.submitOrder`}
         htmlType='button'
         type='primary'
         size='large'

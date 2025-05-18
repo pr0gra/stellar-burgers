@@ -12,7 +12,7 @@ import {
 } from '../../../src/services/slices/burgerConstructorSlice';
 
 export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
-  ({ ingredient, index, totalItems }) => {
+  ({ ingredient, index, totalItems, 'data-cy': dataCy }) => {
     const dispatch = useDispatch();
 
     const handleMoveDown = () => {
@@ -29,6 +29,7 @@ export const BurgerConstructorElement: FC<BurgerConstructorElementProps> = memo(
 
     return (
       <BurgerConstructorElementUI
+        data-cy={dataCy}
         ingredient={ingredient}
         index={index}
         totalItems={totalItems}
