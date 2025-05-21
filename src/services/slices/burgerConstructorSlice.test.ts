@@ -3,7 +3,6 @@ import {
   addIngredient,
   initialState,
   moveIngredientDown,
-  moveIngredientUp,
   removeIngredient,
   BurgerConstructorState
 } from './burgerConstructorSlice';
